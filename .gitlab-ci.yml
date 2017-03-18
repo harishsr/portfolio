@@ -3,18 +3,13 @@ image: ruby:2.4
 services:
   - postgres:9.6
 
-variables:
-  POSTGRES_USER: 'runner'
-
 before_script:
   - ruby -v
   - which ruby
   - gem install bundler --no-ri --no-rdoc
   - bundle install
   - rails -v
-  - RAILS_ENV="gitlab"
 
 test:
   script:
-    - echo $TEST_HOST
     - bundle exec rake test

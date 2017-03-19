@@ -3,6 +3,10 @@ image: ruby:2.4
 services:
   - postgres:9.6
 
+variables:
+  POSTGRES_USER: 'harishramachandran'
+  POSTGRES_PASSWORD: ''
+
 before_script:
   - ruby -v
   - which ruby

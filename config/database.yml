@@ -6,6 +6,8 @@
 #
 default: &default
   adapter: postgresql
+  user: harishramachandran
+  password: 
   encoding: utf8
   pool: 5
   timeout: 5000
@@ -24,5 +26,4 @@ test:
 
 production:
   <<: *default
-  user: runner
   database: portfolio_production

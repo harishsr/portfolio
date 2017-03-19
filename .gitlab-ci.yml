@@ -6,6 +6,7 @@ services:
 variables:
   POSTGRES_USER: 'harishramachandran'
   POSTGRES_PASSWORD: ''
+  POSTGRES_DB: portfolio_test
 
 before_script:
   - ruby -v

@@ -4,6 +4,11 @@ class Admin < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :lockable
 
-  validates :username, presence: true, length: { minimum: 6 }
-  validates :first_name, :last_name, presence: true, length: { in: 2..25 }
+  validates :username, 
+    presence: true, 
+    length: { minimum: 6 },
+    uniqueness: { case_sensitive: false }
+  validates :first_name, :last_name, 
+    presence: true, 
+    length: { in: 2..25 }
 end

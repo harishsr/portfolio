@@ -4,8 +4,9 @@ services:
   - postgres:9.6
 
 variables:
-  POSTGRES_USER: 'harishramachandran'
-  POSTGRES_PASSWORD: ''
+  TEST_HOST: postgres
+  POSTGRES_USER: harishramachandran
+  POSTGRES_PASSWORD:
   POSTGRES_DB: portfolio_test
 
 before_script:

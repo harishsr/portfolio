@@ -60,8 +60,8 @@ end
 
 group :development, :test do
   gem 'byebug', platform: :mri    # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  # gem 'rubocop'
-  # gem 'factory_girl_rails'
+  gem 'rubocop'
+  gem 'factory_girl_rails'
 end
 
 

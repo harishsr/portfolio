@@ -2,9 +2,8 @@ require 'test_helper'
 
 class AdminTest < ActiveSupport::TestCase
   context 'validations' do
-    should 'all invalidate an invalid object' do
+    should 'invalidate invalid objects' do
       admin = Admin.new
-
       expected_errors = ["Email can't be blank", "Password can't be blank", "Username can't be blank", 
                          "Username is too short (minimum is 6 characters)", "First name can't be blank", 
                          "First name is too short (minimum is 2 characters)", "Last name can't be blank", 
@@ -24,7 +23,7 @@ class AdminTest < ActiveSupport::TestCase
     end
 
     should 'create a valid Admin' do
-      admin = FactoryGirl.create :admin
+      admin = FactoryGirl.build :admin
       assert admin.valid?
     end
   end

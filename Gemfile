@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
+gem 'bootstrap', '~> 4.0.0.alpha6'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 # These are commented out b/c I don't think I need them when developing on

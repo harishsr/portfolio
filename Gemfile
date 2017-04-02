@@ -74,4 +74,6 @@ end
 
 group :test do
   gem 'shoulda-context'
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
 end

@@ -1,11 +1,24 @@
-<% entries.each do |ent| %>
+<section>
   <h1>
-    <%= ent.title %>
+    The Pensieve
   </h1>
+  <h4>
+    Thoughts of a Dragon Master
+  </h4>
+</section>
 
-  <p>
-    <%= ent.content %>
-  </p>
+<%= link_to "New Entry", new_entry_url %>
 
-  <hr>
-<% end %>
+<section>
+  <% entries.each do |ent| %>
+    <h3>
+      <%= ent.title %>
+    </h3>
+
+    <p>
+      <%= ent.content %>
+    </p>
+
+    <hr>
+  <% end %>
+</section>

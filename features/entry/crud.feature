@@ -8,11 +8,12 @@ Feature: Entry CRUD
     # When I log in as "bbluth"
     # And I go to the entry index
     And I follow "New Entry"
-    Then I should see "Share with the world:"
+    Then I should see "A New Eloquent Entry"
 
     When I fill in "entry_title" with "James Bond Obituary"
     And I fill in "entry_content" with "James was a great man."
-    And I press "Share this with the world!"
-    Then I should see "James Bond Obituary"
+    And I press "Share this with the world"
+    Then I should see "Your entry was created!"
+    And I should see "James Bond Obituary"
     And I should see "James was a great man."
 

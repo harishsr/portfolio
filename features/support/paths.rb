@@ -9,7 +9,7 @@ def route_for(path)
   when /root/i
     root_path
   when /entry index/i
-    entry_index_path
+    root_path
   else
     raise "Can't find a path for \"#{path}\"."
   end

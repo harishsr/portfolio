@@ -1,4 +1,4 @@
-class EntryController < ApplicationController
+class EntriesController < ApplicationController
 
   helper_method :entries, :entry
   attr_accessor :entries, :entry

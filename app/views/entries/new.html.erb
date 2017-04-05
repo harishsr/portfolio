@@ -2,6 +2,8 @@
   A New Eloquent Entry
 </h3>
 
+<%= render 'shared/errors' %>
+
 <%= simple_form_for :entry, url: entry_path, html: { class: 'form-horizontal' } do |f| %>
   <%= f.input :title, placeholder: 'A humble  title' %>
   <%= f.input :content, as: :text, placeholder: 'Eloquent thoughts', input_html: { rows: 15 } %>

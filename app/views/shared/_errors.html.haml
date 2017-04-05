@@ -1,0 +1,9 @@
+- if resource.errors.any?
+  .alert.alert-danger
+    %h3
+      There are 
+      =pluralize resource.errors.count, "error"
+      on this page
+    %ul
+      - resource.errors.full_messages.each do |message|
+        %li= message

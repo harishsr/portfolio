@@ -34,4 +34,12 @@ class EntriesController < ApplicationController
     params.require(:entry).permit(:title, :content, :favorite)
   end
 
+  def resource
+    entry
+  end
+
+  def collection
+    entries
+  end
+
 end

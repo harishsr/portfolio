@@ -8,17 +8,17 @@ class EntriesController < ApplicationController
   end
 
   def new
-    entry = Entry.new
+    @entry = Entry.new
   end
 
   def create
-    entry = Entry.new(entry_params)
-    # entry.admin = current_user
+    @entry = Entry.new entry_params
+    # entry = current_user.entries.build(entry_params)
     if entry.save
-      flash[:success] = 'Your entry was created!'
+      flash[:notice] = 'Your entry was created!'
       redirect_to :index
     else
-      flash[:error] = 'There was an error :('
+      flash[:alert] = 'There was an error :('
       render :new
     end
   end

@@ -17,7 +17,7 @@ class EntriesController < ApplicationController
     @entry = current_admin.entries.build(entry_params)
     if entry.save
       flash[:notice] = 'Your entry was created!'
-      redirect_to :index
+      redirect_to root_path
     else
       flash[:alert] = 'There was an error :('
       render :new

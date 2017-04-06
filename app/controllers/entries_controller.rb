@@ -3,17 +3,18 @@ class EntriesController < ApplicationController
   helper_method :entries, :entry
   attr_accessor :entries, :entry
 
+  before_action :authenticate_admin!, except: :index
+
   def index
     @entries = Entry.all
   end
 
   def new
-    @entry = Entry.new
+    @entry = current_admin.entries.build
   end
 
   def create
-    @entry = Entry.new entry_params
-    # entry = current_user.entries.build(entry_params)
+    @entry = current_admin.entries.build(entry_params)
     if entry.save
       flash[:notice] = 'Your entry was created!'
       redirect_to :index

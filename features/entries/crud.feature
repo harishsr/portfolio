@@ -4,9 +4,9 @@ Feature: Entry CRUD
 
     # Must be logged in
     Given I go to the entry index
-    # Then I should not see "New Entry"
-    # When I log in as "bbluth"
-    # And I go to the entry index
+    Then I should not see "New Entry"
+    When I log in as "bbluth"
+    And I go to the entry index
     And I follow "New Entry"
     Then I should see "A New Eloquent Entry"
 

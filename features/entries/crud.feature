@@ -53,3 +53,13 @@ Feature: Entry CRUD
     And I should not see "Captivating content"
     And I should see "James Bond Obituary"
     And I should see "James was a great man."
+
+  Scenario: Destroy
+    Given "bbluth" has an entry titled "A solid title" with content "Captivating content"
+    And I go to the entry index
+    And I follow "A solid title"
+
+    When I follow "Destroy"
+    Then I should see "Your entry was destroyed."
+    And I should not see "A solid title"
+    And I should not see "Captivating content"

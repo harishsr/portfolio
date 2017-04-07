@@ -18,7 +18,8 @@ Feature: Entry CRUD
     And I should see "James was a great man."
 
   Scenario: Index & Show
-    Given "bbluth" has an entry titled "A solid title" with content "Captivating content"
+    Given I log in as "bbluth"
+    And "bbluth" has an entry titled "A solid title" with content "Captivating content"
     And "bbluth" has an entry titled "James Bond Obituary" with content "James was a great man."
 
     # Index

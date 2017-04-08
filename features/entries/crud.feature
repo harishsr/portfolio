@@ -37,8 +37,10 @@ Feature: Entry CRUD
     And I should not see "James was a great man."
 
   Scenario: Edit & Update
-    Given "bbluth" has an entry titled "A solid title" with content "Captivating content"
+    Given I log in as "bbluth"
+    And "bbluth" has an entry titled "A solid title" with content "Captivating content"
     And I go to the entry index
+    And I follow "A solid title"
 
     # Edit
     When I follow "Edit"
@@ -46,7 +48,7 @@ Feature: Entry CRUD
     And I fill in "entry_title" with "James Bond Obituary"
     And I fill in "entry_content" with "James was a great man."
     And I press "Update this Entry"
-    Then I should see "Your entry was updated!"
+    Then I should see "Your entry was updated"
 
     # Update
     When I go to the entry index
@@ -56,7 +58,8 @@ Feature: Entry CRUD
     And I should see "James was a great man."
 
   Scenario: Destroy
-    Given "bbluth" has an entry titled "A solid title" with content "Captivating content"
+    Given I log in as "bbluth"
+    And "bbluth" has an entry titled "A solid title" with content "Captivating content"
     And I go to the entry index
     And I follow "A solid title"
 

@@ -4,6 +4,7 @@ services:
   - postgres:9.6
 
 variables:
+  GIT_SSL_NO_VERIFY: 1
   TEST_HOST: postgres
   POSTGRES_USER: harishramachandran
   POSTGRES_PASSWORD: ''
@@ -11,7 +12,6 @@ variables:
 
 before_script:
   - ruby -v
-  - which ruby
   - gem install bundler --no-ri --no-rdoc
   - bundle install
   - rails -v

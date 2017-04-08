@@ -3,7 +3,7 @@ class EntriesController < ApplicationController
   helper_method :entries, :entry
   attr_accessor :entries, :entry
 
-  before_action :authenticate_admin!, except: :index
+  before_action :authenticate_admin!, except: [ :index, :show ]
 
   def index
     @entries = Entry.all
@@ -17,7 +17,7 @@ class EntriesController < ApplicationController
     @entry = current_admin.entries.build(entry_params)
     if entry.save
       flash[:notice] = 'Your entry was created!'
-      redirect_to root_path
+      redirect_to entries_path
     else
       flash[:alert] = 'There was an error :('
       render :new
@@ -27,7 +27,8 @@ class EntriesController < ApplicationController
   # edit
 
   def show
-    @entry = Entry.where(params[:id]).first
+    # Anyone should be able to see this, not just an admin
+    @entry = Entry.where(id: params[:id]).first
   end
 
   # update

@@ -42,8 +42,15 @@ class EntriesController < ApplicationController
     @entry = Entry.where(id: params[:id]).first
   end
 
-  # update
-  # destroy
+  def destroy
+    if entry.destroy
+      flash[:notice] = 'Your entry was destroyed.'
+      redirect_to entries_path
+    else
+      flash[:alert] = 'There was an error :('
+      redirect_to :back
+    end
+  end
 
   private
 

@@ -5,3 +5,4 @@
   = simple_format(entry.content)
 - if admin_signed_in? && current_admin == entry.admin
   = link_to "Edit", edit_entry_path(entry.id)
+  = link_to "Destroy", entry_path(entry.id), method: :delete

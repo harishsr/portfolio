@@ -25,7 +25,11 @@ class EntriesController < ApplicationController
   end
 
   # edit
-  # show
+
+  def show
+    @entry = Entry.where(params[:id]).first
+  end
+
   # update
   # destroy
 

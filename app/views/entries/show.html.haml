@@ -1,6 +1,9 @@
 %h1
   = entry.title
 
+- if entry.image.present?
+  = image_tag entry.image.url
+
 %p
   = simple_format(entry.content)
 - if admin_signed_in? && current_admin == entry.admin

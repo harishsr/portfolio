@@ -1,10 +1,16 @@
 class Entry < ApplicationRecord
 
   CONTENT_LENGTH_MAX = 40_000
+  IMAGE_SIZE_MAX = 5.megabytes
 
   belongs_to :admin
-  has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
-  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+
+  has_attached_file :image, 
+    styles: { medium: "300x300>" }, 
+    default_url: "/images/:style/missing.png"
+  validates_attachment :image,
+    content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] },
+    size: { in: 0..IMAGE_SIZE_MAX }
 
   validates :title, presence: true,
     length: { in: 3..200 }

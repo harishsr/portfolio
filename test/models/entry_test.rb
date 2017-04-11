@@ -39,9 +39,29 @@ class EntryTest < ActiveSupport::TestCase
     end
 
     context 'that images' do
-      should 'not be too large'
-      should 'only be of preferred content_types'
-      should 'not break Entries'
+      should 'not be too large' do
+        # This test file is ~10MB, which is too large
+        invalid_image = File.new(Rails.root.join('test/files/invalid_image_size.jpeg'))
+        entry = FactoryGirl.build :entry, image: invalid_image
+
+        refute entry.valid?
+        assert entry.errors.full_messages.include?("Image file size must be in between 0 Bytes and 5 MB")
+      end
+
+      should 'only be of preferred content_types' do
+        invalid_image = File.new(Rails.root.join('test/files/invalid_file_type.txt'))
+        entry = FactoryGirl.build :entry, image: invalid_image
+
+        refute entry.valid?
+        assert entry.errors.full_messages.include?("Image content type is invalid")
+      end
+
+      should 'not break Entries when valid' do
+        valid_image = File.new(Rails.root.join('test/files/valid_image.jpeg'))
+        entry = FactoryGirl.build :entry, image: valid_image
+
+        assert entry.valid?
+      end
     end
   end
 end

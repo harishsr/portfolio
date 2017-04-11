@@ -37,5 +37,11 @@ class EntryTest < ActiveSupport::TestCase
       entry = FactoryGirl.build(:entry)
       assert entry.valid?
     end
+
+    context 'that images' do
+      should 'not be too large'
+      should 'only be of preferred content_types'
+      should 'not break Entries'
+    end
   end
 end

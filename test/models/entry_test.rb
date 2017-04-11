@@ -62,4 +62,18 @@ class EntryTest < ActiveSupport::TestCase
       end
     end
   end
+
+  should 'destroy associated images correctly' do
+    valid_image = File.new(Rails.root.join('test/files/valid_image.jpeg'))
+    entry = FactoryGirl.create :entry, image: valid_image
+    entry.save!
+
+    # Grab the actual url that ends at the end of the file type
+    image_url = entry.image.url.gsub(/\?(.+)$/, '')
+    assert File.exist?(Rails.root.join("public/#{image_url}"))
+    entry.destroy!
+
+    assert entry.frozen?
+    refute File.exist?(image_url)
+  end
 end

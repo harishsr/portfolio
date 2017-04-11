@@ -1,9 +1,6 @@
 require 'test_helper'
 
 class EntryTest < ActiveSupport::TestCase
-  setup do
-    @admin = FactoryGirl.create :admin
-  end
 
   context 'validations' do
     should 'invalidate invalid objects' do
@@ -23,7 +20,8 @@ class EntryTest < ActiveSupport::TestCase
       expected_errors = ["Title is too long (maximum is #{title_max_length} characters)", 
                          "Content is too long (maximum is #{content_max_length} characters)"]
 
-      entry = FactoryGirl.build(:entry, admin: @admin, 
+      admin = FactoryGirl.build :admin
+      entry = FactoryGirl.build(:entry, admin: admin, 
         title: 'a' * (title_max_length + 1),
         content: 'a' * (content_max_length + 1))
 

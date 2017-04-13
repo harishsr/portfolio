@@ -34,12 +34,23 @@ gem 'simple_form', '~> 3.4'
 gem 'haml', '~> 5.0.0.beta.2'
 gem 'paperclip', '~> 5.1'
 gem 'dotenv-rails', '~> 2.2'
-gem 'fog-aws', '~> 1.3'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 # These are commented out b/c I don't think I need them when developing on
 # non-Windows systems. - Harish
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
+#                      _            _   _
+#  _ __  _ __ ___   __| |_   _  ___| |_(_) ___  _ __
+# | '_ \| '__/ _ \ / _` | | | |/ __| __| |/ _ \| '_ \
+# | |_) | | | (_) | (_| | |_| | (__| |_| | (_) | | | |
+# | .__/|_|  \___/ \__,_|\__,_|\___|\__|_|\___/|_| |_|
+# |_|
+
+group :production do
+  gem 'fog-aws', '~> 1.3'
+end
 
 
 #      _                _                                  _

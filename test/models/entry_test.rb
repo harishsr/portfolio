@@ -70,7 +70,9 @@ class EntryTest < ActiveSupport::TestCase
 
     # Grab the actual url, removing everything after the extension
     image_url = entry.image.url.gsub(/\?(.+)$/, '')
-    assert File.exist?(Rails.root.join("public/#{image_url}"))
+    image_url = Rails.root.join("public/#{image_url}")
+
+    assert File.exist?(image_url)
     entry.destroy!
 
     assert entry.frozen?

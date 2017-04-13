@@ -34,6 +34,7 @@ gem 'simple_form', '~> 3.4.0'
 gem 'haml', '~> 5.0.0.beta.2'
 gem 'paperclip', '~> 5.1.0'
 gem 'dotenv-rails'
+gem 'fog-aws', '~> 1.3'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 # These are commented out b/c I don't think I need them when developing on

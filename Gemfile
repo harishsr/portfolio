@@ -30,10 +30,10 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise', '~> 4.2.1'
 gem 'bootstrap', '~> 4.0.0.alpha6'
-gem 'simple_form', '~> 3.4.0'
+gem 'simple_form', '~> 3.4'
 gem 'haml', '~> 5.0.0.beta.2'
-gem 'paperclip', '~> 5.1.0'
-gem 'dotenv-rails'
+gem 'paperclip', '~> 5.1'
+gem 'dotenv-rails', '~> 2.2'
 gem 'fog-aws', '~> 1.3'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

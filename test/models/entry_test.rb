@@ -68,7 +68,7 @@ class EntryTest < ActiveSupport::TestCase
     entry = FactoryGirl.create :entry, image: valid_image
     entry.save!
 
-    # Grab the actual url that ends at the end of the file type
+    # Grab the actual url, removing everything after the extension
     image_url = entry.image.url.gsub(/\?(.+)$/, '')
     assert File.exist?(Rails.root.join("public/#{image_url}"))
     entry.destroy!

@@ -11,9 +11,11 @@ Feature: Entry CRUD
     Then I should see "A New Eloquent Entry"
 
     When I fill in "entry_title" with "James Bond Obituary"
+    And I attach a valid image
     And I fill in "entry_content" with "James was a great man."
     And I press "Share this with the world"
     Then I should see "Your entry was created!"
+    And I should see "valid_image.jpeg"
     And I should see "James Bond Obituary"
     And I should see "James was a great man."
 
@@ -45,6 +47,7 @@ Feature: Entry CRUD
     # Edit
     When I follow "Edit"
     And I should see "Edit your Eloquent Entry"
+    And I attach a valid image
     And I fill in "entry_title" with "James Bond Obituary"
     And I fill in "entry_content" with "James was a great man."
     And I press "Update this Entry"
@@ -54,6 +57,7 @@ Feature: Entry CRUD
     When I go to the entry index
     Then I should not see "A solid title"
     And I should not see "Captivating content"
+    And I should see "valid_image.jpeg"
     And I should see "James Bond Obituary"
     And I should see "James was a great man."
 
@@ -67,3 +71,4 @@ Feature: Entry CRUD
     Then I should see "Your entry was destroyed."
     And I should not see "A solid title"
     And I should not see "Captivating content"
+    And I should not see "valid_image.jpeg"

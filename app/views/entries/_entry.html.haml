@@ -1,0 +1,8 @@
+%h1
+  = ent.title
+
+- if ent.image.present?
+  = image_tag ent.image.url
+
+%p
+  = simple_format ent.content

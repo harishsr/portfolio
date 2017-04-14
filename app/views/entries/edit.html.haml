@@ -1,9 +1,4 @@
 %h3 Edit your Eloquent Entry
 
 = render 'shared/errors'
-
-= simple_form_for :entry, url: entry_url(entry.id), method: :put do |f|
-  = f.input :title, placeholder: 'A humble title'
-  = f.input :image, as: :file
-  = f.input :content, as: :text, placeholder: 'Eloquent thoughts', input_html: { rows: 15 }
-  = f.submit "Update this Entry", class: "btn btn-primary"
+= render 'form', path: entry_url(entry.id), submit: "Update this Entry", method: :put

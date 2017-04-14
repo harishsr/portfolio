@@ -22,4 +22,8 @@
 
 *.swp
 
+# Ignore the secret environment variables
 .env
+
+# Ignore local files added
+public/system/*

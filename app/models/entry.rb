@@ -6,7 +6,7 @@ class Entry < ApplicationRecord
   belongs_to :admin
 
   has_attached_file :image, 
-    styles: { medium: "300x300>" }, 
+    styles: { medium: "800x500>" }, 
     default_url: "/images/:style/missing.png"
   validates_attachment :image,
     content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] },

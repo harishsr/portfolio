@@ -4,10 +4,6 @@
   </h1>
 </section>
 
-<% if admin_signed_in? %>
-  <%= link_to "New Entry", new_entry_path %>
-<% end %>
-
 <section>
   <% entries.each do |ent| %>
     <h3>

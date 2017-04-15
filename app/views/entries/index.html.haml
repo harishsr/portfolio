@@ -1,0 +1,9 @@
+%h1 A Student's Notebook
+
+- entries.each do |ent|
+  %h3= link_to ent.title, ent
+
+  - if ent.image.present?
+    = image_tag ent.image.url(:medium)
+
+  %p= simple_format(ent.content)

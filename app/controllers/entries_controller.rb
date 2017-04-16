@@ -19,7 +19,6 @@ class EntriesController < ApplicationController
       flash[:notice] = 'Your entry was created!'
       redirect_to entries_path
     else
-      flash[:alert] = 'There was an error :('
       render :new
     end
   end
@@ -32,7 +31,6 @@ class EntriesController < ApplicationController
       flash[:notice] = 'Your entry was updated.'
       redirect_to entries_path
     else
-      flash[:alert] = 'There was an error :('
       render :edit
     end
   end

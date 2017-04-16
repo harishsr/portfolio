@@ -1,4 +1,5 @@
-= render 'entry', ent: entry
+.blog
+  = render 'entry', ent: entry, add_link: false
 
 - if admin_signed_in? && current_admin == entry.admin
   = link_to "Edit", edit_entry_path(entry.id)

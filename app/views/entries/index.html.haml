@@ -5,10 +5,6 @@
     - if admin_signed_in?
       = link_to "New Entry", new_entry_url, class: 'btn btn-success'
 
-- entries.each do |ent|
-  %h3= link_to ent.title, ent
-
-  - if ent.image.present?
-    = image_tag ent.image.url(:medium)
-
-  %p= simple_format(ent.content)
+  - entries.each do |ent|
+    %hr.my-4
+    = render 'entry', ent: ent, add_link: true

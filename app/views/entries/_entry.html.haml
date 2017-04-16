@@ -1,8 +1,11 @@
-%h1
-  = ent.title
+.display-4
+  = add_link ? link_to(ent.title, ent) : ent.title
+
+%small.text-muted
+  written by
+  = ent.admin.name
 
 - if ent.image.present?
-  = image_tag ent.image.url
+  = image_tag ent.image.url(:medium)
 
-%p
-  = simple_format ent.content
+.lead= simple_format(ent.content)

@@ -8,7 +8,7 @@ Feature: Entry CRUD
     When I log in as "bbluth"
     And I go to the entry index
     And I follow "New Entry"
-    Then I should see "A New Eloquent Entry"
+    Then I should see "New Entry"
 
     When I fill in "entry_title" with "James Bond Obituary"
     And I attach a valid image
@@ -46,7 +46,7 @@ Feature: Entry CRUD
 
     # Edit
     When I follow "Edit"
-    And I should see "Edit your Eloquent Entry"
+    And I should see "Edit Entry"
     And I attach a valid image
     And I fill in "entry_title" with "James Bond Obituary"
     And I fill in "entry_content" with "James was a great man."

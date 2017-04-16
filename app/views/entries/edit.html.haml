@@ -1,4 +1,6 @@
-%h3 Edit your Eloquent Entry
+.form
+  %h3.display-6
+    Edit Entry
 
-= render 'shared/errors'
-= render 'form', path: entry_url(entry.id), submit: "Update this Entry", method: :put
+  = render 'shared/errors'
+  = render 'form', path: entry_url(entry.id), submit: "Update this Entry", method: :put

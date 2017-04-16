@@ -1,3 +1,97 @@
+// -------------------------------------
+// VARIABLES & MIXINS
+// -------------------------------------
+$base-size: 10px
+$bg-color: rgb(240,250,250)
+$text-color: darken($bg-color, 80%)
+$hover-color: firebrick
+
 // Custom bootstrap variables must be set 
 // or imported *before* the below import.
 @import "bootstrap"
+
+
+// -------------------------------------
+// MAIN
+// -------------------------------------
+body 
+  padding-top: $base-size * 7
+  background: $bg-color
+  border-left: 10px solid darken($bg-color, 40%)
+  border-right: 10px solid darken($bg-color, 40%)
+
+
+// -------------------------------------
+// NAVBAR
+// -------------------------------------
+.nav
+  background: $bg-color
+  font-size: .75em
+  text-transform: uppercase
+  color: $text-color
+  padding: $base-size 5px
+  border-bottom: 1px solid $text-color
+
+  a
+    color: inherit
+    padding: inherit
+    &:hover
+      color: $hover-color
+
+
+// -------------------------------------
+// BLOG INDEX
+// -------------------------------------
+.blog
+  .blog-title
+    background: darken($bg-color, 10%)
+    padding: 3% 1%
+    border: 1px solid darken($bg-color, 20%)
+    border-radius: 5px
+    margin-bottom: 0.4em
+    width: 100%
+    h1
+      padding-bottom: 2%
+      text-align: left
+    .btn
+      width: 100%
+
+  img
+    width: 100%
+    border: 1px solid darken($bg-color, 40%)
+    margin: ($base-size * 2) auto
+
+  .display-6 a
+    color: $text-color
+    &:hover
+      color: $hover-color
+
+
+// -------------------------------------
+// MEASUREMENTS
+// -------------------------------------
+.wide, .half-width
+  margin: 1%
+
+.wide
+  width: 100%
+
+// .half-width
+//   width: 48%
+
+
+// -------------------------------------
+// TEXT
+// -------------------------------------
+.display-6
+  @extend .display-4
+  font-size: 2em
+
+p
+  @extend .lead
+  font-size: .9em
+  color: $text-color
+
+a:hover
+  text-decoration: none
+

@@ -1,4 +1,4 @@
-.display-4
+.display-6
   = add_link ? link_to(ent.title, ent) : ent.title
 
 %small.text-muted
@@ -8,4 +8,4 @@
 - if ent.image.present?
   = image_tag ent.image.url(:medium)
 
-.lead= simple_format(ent.content)
+%p= simple_format(ent.content)

@@ -15,4 +15,7 @@ class Admin < ApplicationRecord
     presence: true, 
     length: { in: 2..25 }
 
+  def name
+    first_name + ' ' + last_name
+  end
 end

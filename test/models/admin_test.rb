@@ -27,4 +27,9 @@ class AdminTest < ActiveSupport::TestCase
       assert admin.valid?
     end
   end
+
+  should 'have a full name' do
+    admin = FactoryGirl.create :admin, first_name: "Gandalf", last_name: "the Gray"
+    assert_equal "Gandalf the Gray", admin.name
+  end
 end

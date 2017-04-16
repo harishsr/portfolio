@@ -1,4 +1,9 @@
-%h1 A Student's Notebook
+.blog
+  .blog-title.wide
+    %h1.display-3
+      Harish's Notebook
+    - if admin_signed_in?
+      = link_to "New Entry", new_entry_url, class: 'btn btn-success'
 
 - entries.each do |ent|
   %h3= link_to ent.title, ent

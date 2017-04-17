@@ -17,4 +17,6 @@ class Entry < ApplicationRecord
   validates :content, presence: true,
     length: { in: 3..CONTENT_LENGTH_MAX }
 
+  default_scope ->{ order(created_at: :desc) }
+
 end

@@ -6,7 +6,7 @@ class EntriesController < ApplicationController
   before_action :authenticate_admin!, except: [ :index, :show ]
 
   def index
-    @entries = Entry.all
+    @entries = Entry.page(params[:page]).per(4)
   end
 
   def new

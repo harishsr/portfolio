@@ -8,3 +8,8 @@
   - entries.each do |ent|
     %hr.my-4
     = render 'entry', ent: ent, add_link: true
+
+  %hr.my-4
+
+  .pagination= paginate entries
+  = page_entries_info entries

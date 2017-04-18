@@ -1,7 +1,6 @@
 Feature: Entry CRUD
  
   Scenario: New, Create
-
     # Must be logged in
     Given I go to the entry index
     Then I should not see "New Entry"

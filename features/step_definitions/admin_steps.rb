@@ -9,3 +9,11 @@ When /^I log in as "(.+)"$/ do |username|
 
   @current_admin = admin
 end
+
+When /^admin "(.+)" has password "(.+)"$/ do |username, password|
+  admin = Admin.where(username: username).first
+  admin ||= FactoryGirl.create(:admin, username: username)
+  admin.password = password
+  admin.password_confirmation = password
+  admin.save!
+end

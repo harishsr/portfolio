@@ -2,7 +2,7 @@ Feature: Admin Registration & Authentication
 
   Scenario: Registration
     Given I go to the home page
-    Then I should not see "Welcome, "
+    Then I should not see "Welcome"
     And I should not see "Sign off"
     And I should not see "Sign up"
     And there are "0" objects in "Admin"
@@ -41,3 +41,20 @@ Feature: Admin Registration & Authentication
     And I fill in "admin_password" with "password"
     And I press "Log in"
     Then I should see "Signed in successfully."
+
+  # MODIFYING PROFILES IS POSSIBLE BUT NOT LINKED TO OR TESTED YET.
+  # THIS WILL BE A LATER FEATURE AS IT REQUIRES MORE DECISIONS ABOUT
+  # LAYOUT, ETC.
+  #
+  # Scenario: Modifying
+  #   Given I go to the home page
+  #   And I log in as "terminator1000"
+  #   And I follow "Profile Settings"
+  #
+  # DESTROYING PROFILES IS POSSIBLE BUT NOT LINKED TO OR TESTED YET.
+  # THIS WILL BE A LATER FEATURE AS IT REQUIRES MORE DECISIONS ABOUT
+  # LAYOUT, ETC.
+  #
+  # Scenario: Destroying
+  #   Given I go to the home page
+  #   And I log in as "terminator1000"

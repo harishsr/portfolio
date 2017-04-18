@@ -78,4 +78,13 @@ class EntryTest < ActiveSupport::TestCase
     assert entry.frozen?
     refute File.exist?(image_url)
   end
+
+  should 'have an author' do
+    admin = FactoryGirl.create :admin
+    entry = FactoryGirl.create :entry, admin: admin
+    assert_equal admin.name, entry.author
+
+    entry.admin = nil
+    assert_equal 'Anonymous', entry.author
+  end
 end

@@ -19,4 +19,7 @@ class Entry < ApplicationRecord
 
   default_scope ->{ order(created_at: :desc) }
 
+  def author
+    admin ? admin.name : "Anonymous"
+  end
 end

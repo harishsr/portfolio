@@ -1,6 +1,6 @@
 class Admin < ApplicationRecord
 
-  has_many :entries
+  has_many :entries, dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

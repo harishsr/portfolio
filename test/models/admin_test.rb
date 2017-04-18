@@ -32,4 +32,16 @@ class AdminTest < ActiveSupport::TestCase
     admin = FactoryGirl.create :admin, first_name: "Gandalf", last_name: "the Gray"
     assert_equal "Gandalf the Gray", admin.name
   end
+
+  should 'destroy associated entries upon destruction' do
+    admin = FactoryGirl.create :admin
+    entry = FactoryGirl.create :entry, admin: admin
+
+    assert_equal 1, Admin.count
+    assert_equal 1, Entry.count
+
+    admin.destroy!
+    assert_equal 0, Admin.count
+    assert_equal 0, Entry.count
+  end
 end

@@ -27,3 +27,6 @@
 
 # Ignore local files added
 public/system/*
+
+# Ignore coverage data
+coverage/*

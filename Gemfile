@@ -36,11 +36,6 @@ gem 'paperclip', '~> 5.1'
 gem 'dotenv-rails', '~> 2.2'
 gem 'kaminari', '~> 1.0'
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-# These are commented out b/c I don't think I need them when developing on
-# non-Windows systems. - Harish
-# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
 
 #                      _            _   _
 #  _ __  _ __ ___   __| |_   _  ___| |_(_) ___  _ __
@@ -94,6 +89,7 @@ end
 
 group :test do
   gem 'shoulda-context'
-  gem 'cucumber-rails', :require => false
+  gem 'cucumber-rails', require: false
   gem 'database_cleaner'
+  gem 'simplecov', require: false
 end

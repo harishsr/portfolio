@@ -1,12 +1,13 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class EntryTest < ActiveSupport::TestCase
-
   context 'validations' do
     should 'invalidate invalid objects' do
       entry = Entry.new
-      expected_errors = ["Admin must exist", "Title can't be blank", "Title is too short (minimum is 3 characters)", 
-                         "Content can't be blank", "Content is too short (minimum is 3 characters)"]
+      expected_errors = ['Admin must exist', "Title can't be blank", 'Title is too short (minimum is 3 characters)',
+                         "Content can't be blank", 'Content is too short (minimum is 3 characters)']
 
       refute entry.valid?
       expected_errors.each do |error|
@@ -17,13 +18,13 @@ class EntryTest < ActiveSupport::TestCase
     should 'require title and content fall within required lengths' do
       title_max_length = 200
       content_max_length = Entry::CONTENT_LENGTH_MAX
-      expected_errors = ["Title is too long (maximum is #{title_max_length} characters)", 
+      expected_errors = ["Title is too long (maximum is #{title_max_length} characters)",
                          "Content is too long (maximum is #{content_max_length} characters)"]
 
       admin = FactoryGirl.build :admin
-      entry = FactoryGirl.build(:entry, admin: admin, 
-        title: 'a' * (title_max_length + 1),
-        content: 'a' * (content_max_length + 1))
+      entry = FactoryGirl.build(:entry, admin: admin,
+                                        title: 'a' * (title_max_length + 1),
+                                        content: 'a' * (content_max_length + 1))
 
       refute entry.valid?
       expected_errors.each do |error|
@@ -43,7 +44,7 @@ class EntryTest < ActiveSupport::TestCase
         entry = FactoryGirl.build :entry, image: invalid_image
 
         refute entry.valid?
-        assert entry.errors.full_messages.include?("Image file size must be in between 0 Bytes and 5 MB")
+        assert entry.errors.full_messages.include?('Image file size must be in between 0 Bytes and 5 MB')
       end
 
       should 'only be of preferred content_types' do
@@ -51,7 +52,7 @@ class EntryTest < ActiveSupport::TestCase
         entry = FactoryGirl.build :entry, image: invalid_image
 
         refute entry.valid?
-        assert entry.errors.full_messages.include?("Image content type is invalid")
+        assert entry.errors.full_messages.include?('Image content type is invalid')
       end
 
       should 'not break Entries when valid' do

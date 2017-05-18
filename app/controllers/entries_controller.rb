@@ -1,9 +1,10 @@
-class EntriesController < ApplicationController
+# frozen_string_literal: true
 
+class EntriesController < ApplicationController
   helper_method :entries, :entry
   attr_accessor :entries, :entry
 
-  before_action :authenticate_admin!, except: [ :index, :show ]
+  before_action :authenticate_admin!, except: %i[index show]
 
   def index
     @entries = Entry.page(params[:page]).per(4)
@@ -23,8 +24,7 @@ class EntriesController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if entry.update_attributes(entry_params)
@@ -67,5 +67,4 @@ class EntriesController < ApplicationController
   def collection
     entries
   end
-
 end

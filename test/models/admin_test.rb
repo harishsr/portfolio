@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class AdminTest < ActiveSupport::TestCase
   context 'validations' do
     should 'invalidate invalid objects' do
       admin = Admin.new
-      expected_errors = ["Email can't be blank", "Password can't be blank", "Username can't be blank", 
-                         "Username is too short (minimum is 6 characters)", "First name can't be blank", 
-                         "First name is too short (minimum is 2 characters)", "Last name can't be blank", 
-                         "Last name is too short (minimum is 2 characters)"]
+      expected_errors = ["Email can't be blank", "Password can't be blank", "Username can't be blank",
+                         'Username is too short (minimum is 6 characters)', "First name can't be blank",
+                         'First name is too short (minimum is 2 characters)', "Last name can't be blank",
+                         'Last name is too short (minimum is 2 characters)']
 
       refute admin.valid?
       expected_errors.each do |error|
@@ -29,8 +31,8 @@ class AdminTest < ActiveSupport::TestCase
   end
 
   should 'have a full name' do
-    admin = FactoryGirl.create :admin, first_name: "Gandalf", last_name: "the Gray"
-    assert_equal "Gandalf the Gray", admin.name
+    admin = FactoryGirl.create :admin, first_name: 'Gandalf', last_name: 'the Gray'
+    assert_equal 'Gandalf the Gray', admin.name
   end
 
   should 'destroy associated entries upon destruction' do

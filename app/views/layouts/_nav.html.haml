@@ -1,0 +1,15 @@
+.col-md-4
+  = link_to "Blog", root_url, title: "A Student's Notebook"
+  = link_to "Code Repos", 'https://harishsr.com', title: 'Code Repositories', target: "_blank"
+  = link_to "GitHub", 'http://github.com/harishsr', title: 'GitHub Profile', target: "_blank"
+  = link_to "LinkedIn", 'https://linkedin.com/in/harishsr', title: 'LinkedIn Profile', target: "_blank"
+
+.col-md-4
+.col-md-4
+  - if admin_signed_in?
+    Welcome, 
+    = current_admin.username
+    = link_to "Sign off", destroy_admin_session_url, title: "Sign off", method: :delete
+  
+  - else
+    = link_to "Sign in", new_admin_session_url, title: "Sign in"

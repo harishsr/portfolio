@@ -1,0 +1,11 @@
+.display-6
+  = add_link ? link_to(ent.title, ent) : ent.title
+
+%small.text-muted
+  written by
+  = ent.author
+
+- if ent.image.present?
+  = image_tag ent.image.url(:medium)
+
+%p= simple_format(ent.content)

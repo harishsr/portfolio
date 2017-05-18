@@ -1,0 +1,6 @@
+= simple_form_for entry, url: path, method: method do |f|
+  = f.input :title, placeholder: 'Title', label: false
+  = f.input :image, as: :file, placeholder: 'Choose image'
+  = f.input :content, as: :text, placeholder: 'Content', label: false, input_html: { rows: 20 }
+
+  = f.submit submit, class: "btn btn-primary"

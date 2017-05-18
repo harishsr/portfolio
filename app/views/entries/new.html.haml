@@ -1,0 +1,6 @@
+.form
+  %h3.display-6
+    New Entry
+
+  = render 'shared/errors'
+  = render 'form', path: entries_path, method: :post, submit: 'Share this with the world'

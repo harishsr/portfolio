@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Harish R
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    .container.nav.fixed-top
+      = render 'layouts/nav'
+
+    .container
+      .col-md-2
+
+      .col-md-8
+        .row
+          - if notice
+            %div{class: "alert alert-info wide"}
+              = notice
+          - if alert
+            %div{class: "alert alert-danger wide"}
+              = alert
+        .row
+          = yield
+
+      .col-md-2

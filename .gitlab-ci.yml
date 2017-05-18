@@ -1,11 +1,17 @@
-image: ruby:2.4
+# image: ruby:2.4
 
 services:
-  - postgresql:9.6
+  - postgres:9.6
+
+variables:
+  GIT_SSL_NO_VERIFY: '1'
+  TEST_HOST: postgres
+  POSTGRES_USER: harishramachandran
+  POSTGRES_PASSWORD: ''
+  POSTGRES_DB: portfolio_test
 
 before_script:
   - ruby -v
-  - which ruby
   - gem install bundler --no-ri --no-rdoc
   - bundle install
   - rails -v
@@ -13,3 +19,4 @@ before_script:
 test:
   script:
     - bundle exec rake test
+    - bundle exec rake cucumber

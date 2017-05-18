@@ -19,3 +19,14 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+*.swp
+
+# Ignore the secret environment variables
+.env
+
+# Ignore local files added
+public/system/*
+
+# Ignore coverage data
+coverage/*

@@ -1,0 +1,7 @@
+.blog
+  = render 'entry', ent: entry, add_link: false
+
+  - if admin_signed_in? && current_admin == entry.admin
+    .row
+      = link_to "Edit", edit_entry_path(entry.id), class: 'btn btn-outline-info half-width'
+      = link_to "Destroy", entry_path(entry.id), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-outline-danger half-width'

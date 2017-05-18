@@ -1,0 +1,15 @@
+.blog
+  .blog-title
+    %h1.display-3
+      A Student Notebook
+    - if admin_signed_in?
+      = link_to "New Entry", new_entry_url, class: 'btn btn-outline-primary'
+
+  - entries.each do |ent|
+    %hr.my-4
+    = render 'entry', ent: ent, add_link: true
+
+  %hr.my-4
+
+  .pagination= paginate entries
+  = page_entries_info entries

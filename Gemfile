@@ -6,46 +6,90 @@ git_source(:github) do |repo_name|
 end
 
 
+#        _ _                   _                                      _
+#   __ _| | |   ___ _ ____   _(_)_ __ ___  _ __  _ __ ___   ___ _ __ | |_ ___
+#  / _` | | |  / _ \ '_ \ \ / / | '__/ _ \| '_ \| '_ ` _ \ / _ \ '_ \| __/ __|
+# | (_| | | | |  __/ | | \ V /| | | | (_) | | | | | | | | |  __/ | | | |_\__ \
+#  \__,_|_|_|  \___|_| |_|\_/ |_|_|  \___/|_| |_|_| |_| |_|\___|_| |_|\__|___/
+
 gem 'rails'
-# Postgres is used in all environments
 gem 'pg'
 gem 'puma', '~> 3.0'
-
 gem 'sass-rails', '~> 5.0'
-# Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
-# See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
-
-# Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5'
+# gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem 'devise', '~> 4.2.1'
+gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'simple_form', '~> 3.4'
+gem 'haml', '~> 5.0.0.beta.2'
+gem 'paperclip', '~> 5.1'
+gem 'dotenv-rails', '~> 2.2'
+gem 'kaminari', '~> 1.0'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
 
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platform: :mri
+#                      _            _   _
+#  _ __  _ __ ___   __| |_   _  ___| |_(_) ___  _ __
+# | '_ \| '__/ _ \ / _` | | | |/ __| __| |/ _ \| '_ \
+# | |_) | | | (_) | (_| | |_| | (__| |_| | (_) | | | |
+# | .__/|_|  \___/ \__,_|\__,_|\___|\__|_|\___/|_| |_|
+# |_|
+
+group :production do
+  gem 'fog-aws', '~> 1.3'
 end
+
+
+#      _                _                                  _
+#   __| | _____   _____| | ___  _ __  _ __ ___   ___ _ __ | |_
+#  / _` |/ _ \ \ / / _ \ |/ _ \| '_ \| '_ ` _ \ / _ \ '_ \| __|
+# | (_| |  __/\ V /  __/ | (_) | |_) | | | | | |  __/ | | | |_
+#  \__,_|\___| \_/ \___|_|\___/| .__/|_| |_| |_|\___|_| |_|\__|
+#                              |_|
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
+  gem 'web-console'
   gem 'listen', '~> 3.0.5'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+#      _                 __  _            _
+#   __| | _____   __    / / | |_ ___  ___| |_
+#  / _` |/ _ \ \ / /   / /  | __/ _ \/ __| __|
+# | (_| |  __/\ V /   / /   | ||  __/\__ \ |_
+#  \__,_|\___| \_/   /_/     \__\___||___/\__|
+
+group :development, :test do
+  gem 'byebug', platform: :mri    # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'pry-rails'
+  gem 'awesome_print', require: 'ap'
+  gem 'rubocop'
+  gem 'factory_girl_rails'
+  gem 'faker'
+end
+
+
+#  _            _
+# | |_ ___  ___| |_
+# | __/ _ \/ __| __|
+# | ||  __/\__ \ |_
+#  \__\___||___/\__|
+
+group :test do
+  gem 'shoulda-context'
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
+  gem 'simplecov', require: false
+end

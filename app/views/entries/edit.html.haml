@@ -1,0 +1,6 @@
+.form
+  %h3.display-6
+    Edit Entry
+
+  = render 'shared/errors'
+  = render 'form', path: entry_url(entry.id), submit: "Update this Entry", method: :put

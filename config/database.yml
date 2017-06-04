@@ -6,8 +6,8 @@
 #
 default: &default
   adapter: postgresql
-  user: <%= ENV['PG_USER'] || "harishramachandran" %>
-  password: <%= ENV['PG_PASS'] || "" %>
+  user: "harishramachandran"
+  password: ""
   encoding: utf8
   pool: 5
   timeout: 5000

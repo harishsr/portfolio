@@ -1,4 +1,6 @@
 #!/bin/bash
+#
+# by Harish Ramachandran
 
 echo "Pushing changes to Heroku"
 git push heroku master

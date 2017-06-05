@@ -1,5 +1,9 @@
 # image: ruby:2.4
 
+stages:
+  - testing
+  - staging
+
 services:
   - postgres:9.6
 
@@ -17,6 +21,18 @@ before_script:
   - rails -v
 
 test:
+  stage: testing
   script:
     - bundle exec rake test
     - bundle exec rake cucumber
+
+staging:
+  # only: master
+  stage: staging
+  script:
+    - apt-get install -y software-properties-common
+    - add-apt-repository "deb https://cli-assets.heroku.com/branches/stable/apt ./"
+    - curl -fL https://cli-assets.heroku.com/apt/release.key | sudo apt-key add -
+    - apt-get update
+    - apt-get install heroku
+    - heroku --version

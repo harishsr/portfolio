@@ -3,6 +3,7 @@
 stages:
   - testing
   - staging
+  - production
 
 services:
   - postgres:9.6
@@ -26,8 +27,14 @@ test:
     - bundle exec rake test
     - bundle exec rake cucumber
 
-staging:
+staging_deployment:
   stage: staging
   script:
     - gem install dpl
     - dpl --provider=heroku --app=harish-blog-staging --api-key=$HEROKU_STAGING_API_KEY
+
+production_deployment:
+  stage: production
+  script:
+    - gem install dpl
+    - dpl --provider=heroku --app=harish-blog --api-key=$HEROKU_PRODUCTION_API_KEY

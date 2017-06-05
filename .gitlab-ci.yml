@@ -27,12 +27,7 @@ test:
     - bundle exec rake cucumber
 
 staging:
-  # only: master
   stage: staging
   script:
-    - apt-get install -y software-properties-common
-    - add-apt-repository "deb https://cli-assets.heroku.com/branches/stable/apt ./"
-    - curl -fL https://cli-assets.heroku.com/apt/release.key | sudo apt-key add -
-    - apt-get update
-    - apt-get install heroku
-    - heroku --version
+    - gem install dpl
+    - dpl --provider=heroku --app=harish-blog-staging --api-key=$HEROKU_STAGING_API_KEY

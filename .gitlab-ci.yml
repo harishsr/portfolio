@@ -1,5 +1,10 @@
 # image: ruby:2.4
 
+stages:
+  - testing
+  - staging
+  - production
+
 services:
   - postgres:9.6
 
@@ -9,6 +14,8 @@ variables:
   POSTGRES_USER: harishramachandran
   POSTGRES_PASSWORD: ''
   POSTGRES_DB: portfolio_test
+  HEROKU_STAGING_APP_NAME: harish-blog-staging
+  HEROKU_PROD_APP_NAME: harish-blog
 
 before_script:
   - ruby -v
@@ -17,6 +24,23 @@ before_script:
   - rails -v
 
 test:
+  stage: testing
   script:
     - bundle exec rake test
     - bundle exec rake cucumber
+
+staging_deployment:
+  stage: staging
+  script:
+    - gem install dpl
+    - dpl --provider=heroku --app=$HEROKU_STAGING_APP_NAME --api-key=$HEROKU_API_KEY
+    - "curl -n -X POST https://api.heroku.com/apps/$HEROKU_STAGING_APP_NAME/ps -H \"Accept: application/json\" -H \"Authorization: Bearer ${HEROKU_API_KEY}\" -d \"command=bundle exec rails db:migrate\""
+
+production_deployment:
+  stage: production
+  only: 
+    - master
+  script:
+    - gem install dpl
+    - dpl --provider=heroku --app=harish-blog --api-key=$HEROKU_API_KEY
+    - "curl -n -X POST https://api.heroku.com/apps/$HEROKU_PROD_APP_NAME/ps -H \"Accept: application/json\" -H \"Authorization: Bearer ${HEROKU_API_KEY}\" -d \"command=bundle exec rails db:migrate\""

@@ -36,6 +36,7 @@ staging_deployment:
 
 production_deployment:
   stage: production
+  only: master
   script:
     - gem install dpl
     - dpl --provider=heroku --app=harish-blog --api-key=$HEROKU_API_KEY

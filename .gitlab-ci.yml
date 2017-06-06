@@ -32,7 +32,7 @@ staging_deployment:
   script:
     - gem install dpl
     - dpl --provider=heroku --app=harish-blog-staging --api-key=$HEROKU_API_KEY
-    - rake db:migrate
+    - bundle exec rake db:migrate
 
 production_deployment:
   stage: production
@@ -40,4 +40,4 @@ production_deployment:
   script:
     - gem install dpl
     - dpl --provider=heroku --app=harish-blog --api-key=$HEROKU_API_KEY
-    - rake db:migrate
+    - bundle exec rake db:migrate

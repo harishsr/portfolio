@@ -1,8 +1,8 @@
 Given /^I go to the (.+)/ do |path|
-    visit route_for(path)
+  visit path_for(path)
 end
 
-def route_for(path)
+def path_for(path)
   case path
   when /home/i
     root_path

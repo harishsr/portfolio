@@ -28,7 +28,7 @@ gem 'turbolinks', '~> 5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem 'devise', '~> 4.2.1'
+gem 'devise', '~> 4.3'
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'simple_form', '~> 3.4'
 gem 'haml', '~> 5.0.0.beta.2'

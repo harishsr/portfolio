@@ -30,3 +30,5 @@ public/system/*
 
 # Ignore coverage data
 coverage/*
+/public/packs
+/node_modules
